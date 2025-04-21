@@ -15,8 +15,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
+  // Store the user's room and name
+  let currentRoom = null;
+  let currentUserName = null;
+
   // Handle room joining
   socket.on('join-room', ({ roomId, name }) => {
+    currentRoom = roomId;
+    currentUserName = name;
     socket.join(roomId);
     console.log(`User ${name} (${socket.id}) joined room ${roomId}`);
 
@@ -72,8 +78,16 @@ io.on('connection', (socket) => {
     socket.to(roomId).emit('video-id', videoId);
   });
 
+  // Handle user disconnection
   socket.on('disconnect', () => {
-    console.log('User disconnected:', socket.id);
+    if (currentRoom && currentUserName) {
+      console.log(`User ${currentUserName} (${socket.id}) disconnected from room ${currentRoom}`);
+      // Notify other users in the room
+      socket.to(currentRoom).emit('chat-message', {
+        name: 'System',
+        message: `${currentUserName} has left the room.`,
+      });
+    }
   });
 });
 
