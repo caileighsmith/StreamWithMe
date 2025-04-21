@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stream With Me!</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+  <h1>YouTube Watch Party</h1>
+
+  <!-- Room Controls -->
+  <div class="controls">
+    <input type="text" id="roomInput" placeholder="Enter Room ID">
+    <button id="joinBtn">Join Room</button>
+  </div>
+
+  <!-- Video Controls -->
+  <div class="video-controls">
+    <input type="text" id="videoInput" placeholder="Enter YouTube Video ID">
+    <button id="loadVideoBtn">Load Video</button>
+  </div>
+
+  <!-- YouTube Player -->
+  <div id="player"></div>
+
+  <!-- Chat Section -->
+  <div class="chat" style="display: none;">
+    <div id="chatBox"></div>
+    <input type="text" id="chatInput" placeholder="Type message...">
+    <button id="sendChat">Send</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
