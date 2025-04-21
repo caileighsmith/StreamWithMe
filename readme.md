@@ -19,8 +19,10 @@
    ```
 
 2. Install dependencies:
-    ```npm install
+    ```bash
+    npm install
     ```
 3. Start the server:
-    ```node server/index.js
+    ```bash
+    node server/index.js
     ```
