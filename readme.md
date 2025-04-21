@@ -26,3 +26,26 @@
     ```bash
     node server/index.js
     ```
+4. Open application in the brwoser:
+    ```
+    http://localhost:3000
+    ```
+5. Enter a room ID to join or create a room.
+
+6. Load a YouTube video by entering its link.
+
+7. Chat and enjoy synchronized video playback with others in the room.
+
+## Technologies Used
+- Frontend: HTML, CSS, JavaScript, Bootstrap
+- Backend: Node.js, Express.js
+- Real-Time Communication: Socket.IO
+- YouTube Integration: YouTube IFrame API
+
+## Future Improvements
+- Add user authentication for personalized experiences.
+- Support for multiple video platforms.
+- Enhanced UI/UX for better usability.
+
+## License
+This project is licensed under the MIT License. Feel free to use and modify it as needed.
