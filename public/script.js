@@ -138,3 +138,23 @@ function updateUIForRoom(roomId) {
   // Show the chat section
   document.querySelector('.chat').style.display = 'block';
 }
+
+// Close the Room Controls card when the "X" button is clicked
+document.getElementById('closeRoomControls').addEventListener('click', () => {
+  const roomControlsCard = document.getElementById('roomControlsCard');
+  const openRoomControlsButton = document.getElementById('openRoomControls');
+  if (roomControlsCard) {
+    roomControlsCard.style.display = 'none'; // Hide the card
+    openRoomControlsButton.style.display = 'block'; // Show the "Open Room Controls" button
+  }
+});
+
+// Reopen the Room Controls card when the "Open Room Controls" button is clicked
+document.getElementById('openRoomControls').addEventListener('click', () => {
+  const roomControlsCard = document.getElementById('roomControlsCard');
+  const openRoomControlsButton = document.getElementById('openRoomControls');
+  if (roomControlsCard) {
+    roomControlsCard.style.display = 'block'; // Show the card
+    openRoomControlsButton.style.display = 'none'; // Hide the "Open Room Controls" button
+  }
+});

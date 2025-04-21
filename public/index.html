@@ -4,34 +4,63 @@
   <meta charset="UTF-8">
   <title>Stream With Me!</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
-<body>
-  <h1>YouTube Watch Party</h1>
+<body class="bg-dark text-white">
 
-  <!-- Room Controls -->
-  <div class="controls">
-    <input type="text" id="roomInput" placeholder="Enter Room ID">
-    <button id="joinBtn">Join Room</button>
-  </div>
+  <div class="container">
+    <h1>YouTube Watch Party</h1>
+    
+    <div class="card border-secondary bg-dark text-white mb-3" id="roomControlsCard">
+      <!-- Room Controls -->
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>Room controls</span>
+        <button type="button" class="btn-close btn-close-white" aria-label="Close" id="closeRoomControls"></button>
+      </div>
 
-  <!-- Video Controls -->
-  <div class="video-controls">
-    <input type="text" id="videoInput" placeholder="Enter YouTube Video ID">
-    <button id="loadVideoBtn">Load Video</button>
-  </div>
+      <div class="card-body text-center">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control bg-dark text-white" id="roomInput" placeholder="Room ID.." aria-label="Room ID" aria-describedby="button-addon2">
+          <button id="joinBtn" class="btn btn-primary">Join Room</button>
+        </div>
+        <div class="input-group">
+          <input type="text" id="videoInput" class="form-control bg-dark text-white" placeholder="Video link.." aria-label="Video link" aria-describedby="button-addon2">
+          <button id="loadVideoBtn" class="btn btn-primary">Load Video</button>
+        </div>
+      </div>
+    </div>
 
-  <!-- YouTube Player -->
-  <div id="player"></div>
+    <!-- Button to reopen Room Controls -->
+    <button id="openRoomControls" class="btn btn-outline-secondary mb-4 mt-4" style="display: none;">Open Room Controls</button>
 
-  <!-- Chat Section -->
-  <div class="chat" style="display: none;">
-    <div id="chatBox"></div>
-    <input type="text" id="chatInput" placeholder="Type message...">
-    <button id="sendChat">Send</button>
+    <!-- YouTube Player -->
+    <!-- <div class="card border-secondary bg-dark text-white">
+      <div class="card-body text-center">
+        <div id="player"></div>
+
+        <div id="chatBox"></div>
+        <div class="input-group mb-3">
+          <input type="text" id="chatInput" class="form-control bg-dark text-white" placeholder="Type message...">
+          <button class="btn btn-outline-secondary" type="button" id="sendChat">Send</button>
+        </div>
+      </div>
+    </div> -->
+
+      <div class="card bg-dark text-white shadow" style="max-width: inherit;">
+        <div id="player"></div>
+      </div>
+      <div class="card bg-dark text-white shadow p-3">
+        <div id="chatBox"></div>
+        <div class="input-group mb-3">
+          <input type="text" id="chatInput" class="form-control bg-dark text-white" placeholder="Type message...">
+          <button class="btn btn-outline-secondary" type="button" id="sendChat">Send</button>
+        </div>
+      </div>
   </div>
 
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>
