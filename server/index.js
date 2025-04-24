@@ -42,10 +42,16 @@ io.on('connection', (socket) => {
 
   // Handle play, pause, seek events
   socket.on('play', (roomId) => {
+    //For debugging:
+    console.log(`User ${currentUserName} (${socket.id}) played the video in room ${roomId}`);
+    
     socket.to(roomId).emit('play');
   });
 
   socket.on('pause', (roomId) => {
+    // For debugging:
+    console.log(`User ${currentUserName} (${socket.id}) paused the video in room ${roomId}`);
+    
     socket.to(roomId).emit('pause');
   });
 

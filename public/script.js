@@ -35,6 +35,7 @@ document.getElementById('joinBtn').addEventListener('click', () => {
 });
 
 const urlParser = (url) => {
+  // Takes in a YouTube URL, returning the video ID
   if (!url) return null;
   let index = url.indexOf("v=");
   if (index === -1) return null;
